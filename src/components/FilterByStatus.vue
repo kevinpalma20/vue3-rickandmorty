@@ -1,5 +1,5 @@
 <template>
-  <div class="filter">
+  <div class="containerfilter status">
     <div class="item" @click="filter('')">
       All
     </div>
@@ -31,11 +31,19 @@ export default {
 </script>
 
 <style lang="scss">
-.filter {
+.status {
+  grid-template-columns: repeat(4, 1fr);
+}
+.pagination {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.containerfilter {
   width: 400px;
   margin: 0 auto;
+  margin-top: 1%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
   border-radius: 10px;
   overflow: hidden;
   .item {

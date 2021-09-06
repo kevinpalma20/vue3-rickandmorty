@@ -3,14 +3,18 @@
     <img :src="item.image" :alt="item.name" />
     <div class="character__info">
       <h3>{{ item.name }}</h3>
+
       <div class="status">
         <span :class="item.status == 'Alive' ? 'alive' : item.status == 'Dead' ? 'dead' : 'default'"></span>
         <span> {{ item.status }} - {{ item.species }} </span>
       </div>
       <div class="origin">
+        <span> Gender: {{ item.gender }}</span>
+      </div>
+      <div class="origin">
         <span> Origin: {{ item.origin.name }} </span>
       </div>
-      <div class="location">
+      <div>
         <span> Location: {{ item.location.name }} </span>
       </div>
     </div>
@@ -69,7 +73,7 @@ export default {
         background-color: white;
       }
     }
-    .origen {
+    .origin {
       margin-bottom: 0.5rem;
     }
   }

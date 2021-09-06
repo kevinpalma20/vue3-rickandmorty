@@ -4,8 +4,19 @@ export default createStore({
   state: {
     characters: [],
     charactersFilter: [],
+    pages: 1,
   },
   mutations: {
+    setIncreasePages(state) {
+      if (state.pages < 34) {
+        state.pages++;
+      }
+    },
+    setDiminishPages(state) {
+      if (state.pages > 1) {
+        state.pages--;
+      }
+    },
     setCharacters(state, payload) {
       state.characters = payload;
     },
@@ -16,13 +27,19 @@ export default createStore({
   actions: {
     async getCharacters({commit}) {
       try {
-        const response = await fetch('https://rickandmortyapi.com/api/character');
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${this.state.pages}`);
         const data = await response.json();
         commit('setCharacters', data.results);
         commit('setCharactersFilter', data.results);
       } catch (error) {
         console.error(error);
       }
+    },
+    setIncreasePages({commit, state}) {
+      commit('setIncreasePages');
+    },
+    setDiminishPages({commit, state}) {
+      commit('setDiminishPages');
     },
     filterByStatus({commit, state}, status) {
       const filter = state.characters.filter((character) => {

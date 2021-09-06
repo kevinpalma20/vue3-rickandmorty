@@ -30,8 +30,13 @@ export default {
       store.dispatch('getCharacters');
     });
 
+    const getCharacters = () => {
+      store.dispatch('getCharacters');
+    };
+
     return {
       characters,
+      getCharacters,
     };
   },
 };

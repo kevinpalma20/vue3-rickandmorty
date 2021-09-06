@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Rick And Morty</h1>
+    <Pagination />
     <FilterByStatus />
     <FilterByName />
     <ListCharacters />
@@ -11,13 +12,18 @@
 import ListCharacters from '@/components/ListCharacters';
 import FilterByStatus from '@/components/FilterByStatus';
 import FilterByName from '@/components/FilterByName';
+import Pagination from '@/components/Pagination';
 
 export default {
   name: 'App',
+  data() {
+    return {};
+  },
   components: {
     ListCharacters,
     FilterByStatus,
     FilterByName,
+    Pagination, 
   },
 };
 </script>
